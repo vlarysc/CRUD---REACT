@@ -1,5 +1,5 @@
 import Form from "./componets/form/Form";
-import Table from "./componets/Table";
+import Table from "./componets/table/Table";
 import React, { Component } from 'react';
 import "./App.css"
 
@@ -13,10 +13,14 @@ class App extends Component {
     }
   }
 
-  submit(name, nickName) {
+  submit(id, name, nickName, email, phone, vacation) {
     const newUser = {
+      id,
       name,
-      nickName
+      nickName,
+      email,
+      phone,
+      vacation
     }
     const newArray = [...this.state.users, newUser]
     const newState = {

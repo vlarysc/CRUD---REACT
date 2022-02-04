@@ -1,0 +1,19 @@
+table {
+  width: 80%;
+}
+.id {
+  min-width: 0.5em;
+  max-width: 1em;
+}
+.name {
+  min-width: 4em;
+}
+.nickName {
+  min-width: 4em;
+}
+.email {
+  min-width: 4em;
+}
+.phone {
+  min-width: 4em;
+}
