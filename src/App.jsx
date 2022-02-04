@@ -13,14 +13,14 @@ class App extends Component {
     }
   }
 
-  submit(id, name, nickName, email, phone, vacation) {
+  submit(id, name, nickName, email, phone, vocation) {
     const newUser = {
       id,
       name,
       nickName,
       email,
       phone,
-      vacation
+      vocation
     }
     const newArray = [...this.state.users, newUser]
     const newState = {

@@ -9,9 +9,9 @@ class Form extends Component {
     this.id = 0
     this.name = ""
     this.nickName = ""
-    this.email = "manoelfranciscose@gmail.com"
-    this.phone = "54996901309"
-    this.vacation = true
+    this.email = ""
+    this.phone = ""
+    this.vocation = false
     this.users = []
   }
   modelName(e) {
@@ -27,7 +27,8 @@ class Form extends Component {
     this.phone = e.target.value
   }
   modelVocation(e) {
-    this.vacation = e.target.value
+    this.vocation = e.target.checked
+    console.log(this.vocation)
   }
   submit(e) {
     if (this.name == "" || this.nickName == "") {
@@ -36,13 +37,13 @@ class Form extends Component {
     } else {
       e.preventDefault()
       this.id = this.id + 1
-      if (this.vocation == false) {
-        this.vocation = "Disponível"
+      if (this.vocation === true) {
+        this.vocation = "On"
       } else {
-        this.vocation = "Ferias"
+        this.vocation = "Off"
       }
       console.log(this.vocation)
-      this.props.submit(this.id, this.name, this.nickName, this.email, this.phone, this.vacation)
+      this.props.submit(this.id, this.name, this.nickName, this.email, this.phone, this.vocation)
     }
   }
   pushNotify(status, title, text) {
