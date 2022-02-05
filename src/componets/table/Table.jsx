@@ -1,10 +1,20 @@
 import React, { Component } from 'react'
 import Users from '../Users'
 import "./style.css"
+import axios from 'axios';
 
 class Table extends Component {
-
+  state = {
+    users: []
+  }
+  async componentDidMount() {
+    const get = await axios.get("https://m322v8qtfj.execute-api.us-east-1.amazonaws.com/dev/users")
+      .then((res) => res)
+      .catch((err) => err)
+    this.setState({ users: get.data })
+  }
   render() {
+    const { users } = this.state;
     return (
       <table border="1">
         <thead>
@@ -16,9 +26,14 @@ class Table extends Component {
             <th className="phone">Telefone</th>
             <th className="vacation">Ferias</th>
           </tr>
-          {this.props.users.map((user, index) => {
+          {users.map((user, index) => {
+            if (user.vocation === true) {
+              user.vocation = "On"
+            } else {
+              user.vocation = "Off"
+            }
             return (
-              <Users key={index} id={user.id} name={user.name} nickName={user.nickName} email={user.email} phone={user.phone} vocation={user.vocation} />
+              <Users key={index} id={user.userId} name={user.name} nickName={user.nickName} email={user.email} phone={user.phone} vocation={user.vocation} />
             )
           })}
         </thead>

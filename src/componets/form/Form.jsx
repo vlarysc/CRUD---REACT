@@ -6,7 +6,7 @@ import 'simple-notify/dist/simple-notify.min.css'
 class Form extends Component {
   constructor(props) {
     super(props)
-    this.id = 0
+    /* this.id = 0 */
     this.name = ""
     this.nickName = ""
     this.email = ""
@@ -28,7 +28,6 @@ class Form extends Component {
   }
   modelVocation(e) {
     this.vocation = e.target.checked
-    console.log(this.vocation)
   }
   submit(e) {
     if (this.name == "" || this.nickName == "") {
@@ -36,13 +35,12 @@ class Form extends Component {
       e.preventDefault()
     } else {
       e.preventDefault()
-      this.id = this.id + 1
-      if (this.vocation === true) {
+      /* this.id = this.id + 1 */
+      /* if (this.vocation === true) {
         this.vocation = "On"
       } else {
         this.vocation = "Off"
-      }
-      console.log(this.vocation)
+      } */
       this.props.submit(this.id, this.name, this.nickName, this.email, this.phone, this.vocation)
     }
   }

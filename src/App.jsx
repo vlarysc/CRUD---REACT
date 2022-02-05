@@ -1,7 +1,8 @@
 import Form from "./componets/form/Form";
 import Table from "./componets/table/Table";
 import React, { Component } from 'react';
-import "./App.css"
+import "./App.css";
+
 
 
 class App extends Component {
@@ -12,6 +13,8 @@ class App extends Component {
       users: []
     }
   }
+
+
 
   submit(id, name, nickName, email, phone, vocation) {
     const newUser = {
@@ -26,10 +29,7 @@ class App extends Component {
     const newState = {
       users: newArray
     }
-    /* this.users.push(newUser)
-    console.log(this.users) */
     this.setState(newState)
-    /* return newUser */
   }
 
   render() {
